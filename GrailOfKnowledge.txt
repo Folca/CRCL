@@ -1,0 +1,18 @@
+Dumb articles
+-Anything from ML models, to stats problemss, math concepts
+-philosophical discussion of statistics and what it means
+-bastardization of statistics, how normal distribution can be really bad?
+
+Beginner Tutorials
+-Working with github (take screenshots), layman term languages
+
+List of References
+-For things we have to know/learn
+
+
+Consulting
+
+Applied job prep (quick tutorial training)
+
+
+
