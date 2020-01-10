@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+  }
+
+  .container-fluid {
+      max-height: 6em;
+  }
+
+  .jumbotron {
+      padding-top: 1em;
+      padding-bottom: 1em;
+      margin-bottom: 2%;
+      max-height: 100%;
+  }
+
+  .logo {
+      height: 100%;
+      width: 100%;
+      max-width: 5em;
+      max-height: 4em;
+      border-radius: .5em;
+      /* padding: 2%; */
+  }
+
+  #login-button {
+      height: 100%;
+      width: 100%;
+      vertical-align: middle;
+      margin-bottom: inherit;
+  }
+
+  #title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 200%;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: inherit;
+    /* height: 100%; */
+  }
+
+  .login-form {
+    background-color: rgba(87, 85, 85, 0.9);
+    border-radius: 1em;
+    margin-top: 5em;
+    height: 70%;
+    width: 50%;
+  }
+
+  .exit-container {
+      padding: 0 !important;
+      justify-content: right;
+      justify-items: right;
+      height: 0;
+  }
+
+  .exit-button {
+      height: 1.5em;
+      width: 100%;
+      /* width: inherit; */
+      justify-items: right;
+      justify-content: right;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      background-image: url('SNimgs/cancel.svg');
+      background-repeat: no-repeat;
+      position: relative;
+      top: .5em;
+      z-index: 1;
+  }
+
+  .exit-button:hover {
+      background-color: transparent;
+  }
+
+  .wager-form {
+      background-color: transparent;
+      border-radius: 1em;
+      margin-top: .5em;
+      max-height: 80%;
+      width: 100%;
+      border: .5em black !important;
+  }
+
+  #wager-inner {
+      align-self: center;
+      padding: 0;
+      align-items: center;
+      text-align: center;
+      margin: 0;
+  }
+
+  .wager-team, .wager-odds, .wager-payoff {
+      z-index: 1;
+      margin: 0;
+      padding: 0;
+    text-align: center;
+  }
+
+  .wager-payoff {
+      text-align: right;
+  }
+
+  /* .wager-box {
+      margin-left: 0;
+      align-content: center;
+  } */
+
+  /* .wager-box>label {
+      color: black;
+  } */
+
+  .wager-amt {
+      position: relative;
+      left: 1em;
+      width: 90%;
+  }
+
+  .wager-titles {
+      /* margin-top: 1em; */
+      padding-right: 0;
+  }
+
+  .wager-submit {
+      margin-bottom: 1em;
+  }
+
+  .popup-text {
+      margin-left: 0;
+      color: black;
+  }
+
+  .modal {
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .panel-login {
+      margin-top: 10%;
+	border-color: #ccc;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.5);
+    background-color: rgb(226, 225, 225);
+}
+.panel-login>.panel-heading {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align:center;
+}
+.panel-login>.panel-heading a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color: #029f5b;
+	font-size: 18px;
+}
+.panel-login>.panel-heading hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	height: 45px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
+}
+.btn-login {
+	background-color: #59B2E0;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #59B2E6;
+}
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #53A3CD;
+	border-color: #53A3CD;
+}
+.forgot-password {
+	/* text-decoration: underline; */
+	color: white;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+    text-decoration: underline;
+    color: white;
+}
+
+.btn:focus,.btn.active:focus {
+    box-shadow: none !important;
+}
+
+label, .forgot-password {
+    color: black;
+}
+
+.btn-register {
+	background-color: #1CB94E;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: #1CA347;
+	border-color: #1CA347;
+}
+
+.invisible {
+    visibility: hidden;
+    height: 0;
+}
+
+  .contents {
+      margin-top: 2em;
+  }
+
+  .leaderboard {
+      /* background-color: antiquewhite; */
+      /* padding: 0; */
+  }
+
+  /* .odds {
+      background-color: aquamarine;
+  } */
+
+  .btn-group {
+      width: 100%;
+  }
+
+  .leaderSwitch {
+      width: 50%;
+  }
+
+  .leaderButtons {
+      margin: 0;
+  }
+
+  .leaderList {
+      padding: 0;
+      margin: 0;
+  }
+
+  .card {
+      width: 100%;
+  }
+
+  .leaders {
+      padding: 5%;
+      text-align: left;
+  }
+
+  .amounts {
+      padding: 5%;
+      text-align: center;
+  }
+  
+  .oddSections {
+      margin: 0;
+      padding: 0;
+      /* background-color: beige; */
+  }
+
+  .matchup {
+      padding: 0;
+      width: 100%;
+      align-self: center;
+  }
+
+  .oddTitles {
+      font-weight: bold;
+      text-align: center;
+      margin-left: 0;
+      z-index: 1;
+      font-size: 1em;
+      padding: 0;
+  }
+
+  .teams {
+      height: 1.5em;
+      text-align: left;
+  }
+
+  .teamButtons {
+      color: black;
+      padding: 0;
+      /* border-color: black; */
+  }
+
+  .hover {
+      font-weight: bold;
+  }
+
+  .types {
+      vertical-align: middle;
+      margin-top: auto;
+      margin-bottom: auto;
+  }
+
+  .types p {
+      margin-top: auto;
+      margin-bottom: auto;
+      vertical-align: middle;
+  }
+
+  .cancel {
+      padding: 0;
+  }
+
+  img {
+      height: 1.2em;
+      width: 1.2em;
+  }
+
+  /* .btn-danger {
+      height: 2em;
+      width: 2em;
+      text-align: left;
+      vertical-align: middle;
+      border-radius: 100%;
+
+  } */

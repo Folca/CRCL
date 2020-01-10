@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SportsNite</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="sn.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class='container-fluid'>
+        <div class='jumbotron jumbotron-fluid row header'>
+            <div class='col-sm-3 col-md-2'>
+                <img class='logo' src = 'SNimgs/logo.jpg'>
+            </div>
+
+            <div class='col-4 offset-sm-1 offset-md-2'>
+                <h1 id='title'>SportsNite</h1>
+            </div>
+            
+            <div class='col-sm-3 col-md-2 offset-sm-1 offset-md-2'>
+                    <button class = 'btn btn-primary' id='login-button' type = 'button'>
+                        Login
+                    </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Form Pop-up -->
+    <div class="invisible login-form container modal">
+        <div class="row">
+            <div class='col-md-8 offset-md-2 exit-container'>
+                <div class='col-1 offset-11 exit-container'>
+                        <button class="btn exit-button" type="button">
+                                <!-- <img src='SNimgs/cancel.svg'> -->
+                        </button>
+                </div>
+            </div>
+            <div class="col-md-8 offset-md-2">
+                <div class="panel panel-login">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="active" id="login-form-link">Login</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" id="register-form-link">Register</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                                        <label for="remember"> Remember Me</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 offset-sm-3">
+                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="text-center">
+                                                    <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 offset-sm-3">
+                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Wager Pop-up
+    <div class="invisible wager-form container modal">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="panel panel-login">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class='col-12'>
+                                    <form id='wager-form' action='###' method='post', role='form' style='display:block'>
+                                        <div class='container row' id='wager-inner'>
+                                            <div class='col-12 row wager-titles'>
+                                                <div class='col-sm-4 offset-sm-1 col-md-3 oddTitles'>
+                                                    <p>Wager</p>
+                                                </div>
+                                                <div class='col-sm-4 offset-sm-1 col-md-3 oddTitles'>
+                                                    <p>Odds</p>
+                                                </div>
+                                                <div class='col-sm-4 offset-sm-1 col-md-3 oddTitles'>
+                                                    <p>Amount</p>
+                                                </div>
+                                                <div class='col-sm-4 offset-sm-1 col-md-3 oddTitles'>
+                                                    <p>Payoff ($)</p>
+                                                </div>
+                                            </div>
+                                            <div class='container row'>
+                                                <div class='col-sm-4 offset-sm-1 col-md-3 popup-text'>
+                                                    <p>Team #1: +1.5</p>
+                                                </div>
+                                                <div class='col-sm-4 offset-sm-1 col-md-3 popup-text'>
+                                                    <p>+$100</p>
+                                                </div>
+                                                <div class="wager-box form-group col-sm-4 offset-sm-1 col-md-3 popup-text">
+                                                    <label position='relative' right='1em' color='black'>$</label>
+                                                    <input class='wager-amt' type="text" name="wager1-amt" id="wager1-amt" tabindex="1" class="form-control" placeholder="$0" value="">
+                                                </div>
+                                                <div class='col-sm-4 offset-sm-1 col-md-3 popup-text'>
+                                                    <p>Lots o' $</p>
+                                                </div>
+                                            </div>
+                                            <div class='container row'>
+                                                <div class='col-sm-4 offset-sm-1 col-md-3 popup-text'>
+                                                    <p>Team #2: -1.5</p>
+                                                </div>
+                                                <div class='col-sm-4 offset-sm-1 col-md-3 popup-text'>
+                                                    <p>+$100</p>
+                                                </div>
+                                                <div class="wager-box form-group col-sm-4 offset-sm-1 col-md-3 popup-text" margin-left='0'>
+                                                    <label position='relative' right='1em'>$</label>
+                                                    <input class='wager-amt' type="text" name="wager1-amt" id="wager1-amt" tabindex="1" class="form-control" placeholder="$0" value="">
+                                                </div>
+                                                <div class='col-sm-4 offset-sm-1 col-md-3 popup-text'>
+                                                    <p>Not as much $</p>
+                                                </div>
+                                            </div>
+                                            <div class='container row'>
+                                                <div class='col-2 offset-8'>
+                                                        <button class="btn btn-primary wager-submit" type="submit">Submit</button>
+                                                </div>
+                                                <div class='col-2'>
+                                                        <button class="btn btn-danger wager-cancel" type="button">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    <!-- Website Body -->
+    <div class='container-fluid padding contents'>
+
+        <div class='row text-center padding'>
+            <!-- Leaderboard -->
+            <div class='col-sm-8 offset-sm-2 col-md-3 offset-md-1 leaderboard'>
+                <!-- Toggle Buttons -->
+                <div class='row text-center padding leaderButtons'>
+                    <div class="btn-group btn-group-toggle" role="group">
+                        <button type="button" id='money' class="btn btn-secondary active leaderSwitch">$</button>
+                        <button type="button" id='points' class="btn btn-secondary leaderSwitch">Pts</button>
+                    </div>
+                </div>
+                <!-- List of Leaders -->
+                <div id='moneyList' class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item leaderList">
+                            <div class='container row leaderList'>
+                                <div class='col-6 leaders'>
+                                    <p>$ Name #1</p>
+                                </div>
+                                <div class='col-6 amounts'>
+                                    <p>$ Amt #1</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item leaderList">
+                            <div class='container row leaderList'>
+                                <div class='col-6 leaders'>
+                                    <p>$ Name #2</p>
+                                </div>
+                                <div class='col-6 amounts'>
+                                    <p>$ Amt #2</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item leaderList">
+                            <div class='container row leaderList'>
+                                <div class='col-6 leaders'>
+                                    <p>$ Name #3</p>
+                                </div>
+                                <div class='col-6 amounts'>
+                                    <p>$ Amt #3</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id='pointList' class="card invisible">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item leaderList">
+                            <div class='container row leaderList'>
+                                <div class='col-6 leaders'>
+                                    <p>Pt Name #1</p>
+                                </div>
+                                <div class='col-6 amounts'>
+                                    <p>Pt Amt #1</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item leaderList">
+                            <div class='container row leaderList'>
+                                <div class='col-6 leaders'>
+                                    <p>Pt Name #2</p>
+                                </div>
+                                <div class='col-6 amounts'>
+                                    <p>Pt Amt #2</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item leaderList">
+                            <div class='container row leaderList'>
+                                <div class='col-6 leaders'>
+                                    <p>Pt Name #3</p>
+                                </div>
+                                <div class='col-6 amounts'>
+                                    <p>Pt Amt #3</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Today's Bets -->
+            <div class='col-sm-12 col-md-6 odds offset-md-1'>
+                <div class='container-fluid row oddSections'>
+                    <div class='container-fluid row oddSections text-center oddTitles'>
+                        <div class='col-4'>
+                            <p>Game</p>
+                        </div>
+                        <div class='col-4'>
+                            <p>Type</p>
+                        </div>
+                        <div class='col-4'>
+                            <p>Odds</p>
+                        </div>
+                    </div>
+                    <div class='container-fluid row oddSections'>
+                        <div class='container-fluid row single-game'>
+                            <div class='col-4 container'>
+                                <button class='btn teamButtons'>
+                                        <div class='container teams'>
+                                            <p></p>
+                                        </div>
+                                        <div class='container teams'>
+                                            <p>Team 2</p>
+                                        </div>
+                                </button>
+                            </div>
+                            <div class='col-4 types'>
+                                <p>Type 1</p>
+                            </div>
+                            <div class='col-4 container'>
+                                <div class='container teams text-center'>
+                                    <p>+$100</p>
+                                </div>
+                                <div class='container teams text-center'>
+                                    <p>+$200</p>
+                                </div>
+                            </div>
+                            <!-- <div class='col-12 container-fluid row wager-form'></div> -->
+                            <div class="invisible wager-form container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class='col-12'>
+                                                    <form id='wager-form' action='###' method='post', role='form' style='display:block'>
+                                                        <div class='container row' id='wager-inner'>
+                                                            <div class='col-12 row wager-titles'>
+                                                                <div class='col-sm-3 offset-sm-1 col-md-3 oddTitles'>
+                                                                    <p>Wager</p>
+                                                                </div>
+                                                                <div class='col-sm-3 offset-sm-1 col-md-3 oddTitles'>
+                                                                    <p>Odds</p>
+                                                                </div>
+                                                                <div class='col-sm-3 offset-sm-1 col-md-3 oddTitles'>
+                                                                    <p>Amount</p>
+                                                                </div>
+                                                                <div class='col-sm-3 offset-sm-1 col-md-3 oddTitles'>
+                                                                    <p>Payoff</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class='container row'>
+                                                                <div class='col-sm-3 offset-sm-1 col-md-3 wager-team'>
+                                                                    <p>Team #1: +1.5</p>
+                                                                </div>
+                                                                <div class='col-sm-3 offset-sm-1 col-md-3 wager-odds'>
+                                                                    <p>+$100</p>
+                                                                </div>
+                                                                <div class="wager-box form-group col-sm-4 offset-sm-1 col-md-3 popup-text">
+                                                                    <!-- <label position='relative' right='1em' color='black'>$</label> -->
+                                                                    <input class='wager-amt' type="text" name="wager1-amt" id="wager1-amt" tabindex="1" class="form-control" placeholder="$0" value="">
+                                                                </div>
+                                                                <div class='col-sm-3 offset-sm-1 col-md-3 wager-payoff'>
+                                                                    <p>$0</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class='container row'>
+                                                                <div class='col-sm-3 offset-sm-1 col-md-3 wager-team'>
+                                                                    <p>Team #2: -1.5</p>
+                                                                </div>
+                                                                <div class='col-sm-3 offset-sm-1 col-md-3 wager-odds'>
+                                                                    <p>+$100</p>
+                                                                </div>
+                                                                <div class="wager-box form-group col-sm-4 offset-sm-1 col-md-3 popup-text" margin-left='0'>
+                                                                    <!-- <label position='relative' right='1em'>$</label> -->
+                                                                    <input class='wager-amt' type="text" name="wager1-amt" id="wager1-amt" tabindex="1" class="form-control" placeholder="$0" value="">
+                                                                </div>
+                                                                <div class='col-sm-3 offset-sm-1 col-md-3 wager-payoff'>
+                                                                    <p>$0</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class='container row'>
+                                                                <div class='col-2 offset-8'>
+                                                                        <button class="btn btn-primary wager-submit" type="submit">Submit</button>
+                                                                </div>
+                                                                <div class='col-2'>
+                                                                        <button class="btn btn-danger wager-cancel" type="button">Cancel</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class='container-fluid row oddSections'>
+                        <div class='col-4 container'>
+                            <button class='btn teamButtons'>
+                                    <div class='container teams'>
+                                        <p>Team 3 @</p>
+                                    </div>
+                                    <div class='container teams'>
+                                        <p>Team 4</p>
+                                    </div>
+                            </button>
+                        </div>
+                        <div class='col-4 types'>
+                            <p>Type 2</p>
+                        </div>
+                        <div class='col-4 container'>
+                            <div class='container teams text-center'>
+                                <p>+$300</p>
+                            </div>
+                            <div class='container teams text-center'>
+                                <p>+$400</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='container-fluid row oddSections'>
+                        <div class='col-4 container'>
+                            <button class='btn teamButtons'>
+                                    <div class='container teams'>
+                                        <p>Team 5 @</p>
+                                    </div>
+                                    <div class='container teams'>
+                                        <p>Team 6</p>
+                                    </div>
+                            </button>
+                        </div>
+                        <div class='col-4 types'>
+                            <p>Type 3</p>
+                        </div>
+                        <div class='col-4 container'>
+                            <div class='container teams text-center'>
+                                <p>+$500</p>
+                            </div>
+                            <div class='container teams text-center'>
+                                <p>-$200</p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div> -->
+                </div>
+            </div>
+            <hr>
+            
+            <!-- List of current Wagers -->
+            <!-- Header -->
+            <div class='col-12 contents row'>
+                <h2 class='col-4 offset-4 text-center'>Current Wagers</h2>
+            </div>
+            <div class='col-12 row'>
+                <div class='col-2'>
+                    <p>Wager</p>
+                </div>
+                <div class='col-2 offset-1'>
+                    <p>Amount Wagered ($)</p>
+                </div>
+                <div class='col-2 offset-1'>
+                    <p>Potential Winnings ($)</p>
+                </div>
+                <div class='col-2 offset-1'>
+                    <p>Cancel Wager</p>
+                </div>
+            </div>
+            <hr>
+            <!-- Start List -->
+                <div class='col-12 row padding'>
+                    <div class='col-2'>
+                        <p>Bet #1</p>
+                    </div>
+                    <div class='col-2 offset-1'>
+                        <p>Amt 1</p>
+                    </div>
+                    <div class='col-2 offset-1'>
+                        <p>Winnings 1</p>
+                    </div>
+                    <div class='col-2 offset-1'>
+                        <button class='btn cancel cancel-wager'>
+                            <img src='SNimgs/cancel.svg' alt="Cancel">
+                        </button>
+                    </div>
+                </div>
+                <div class='col-12 row padding'>
+                    <div class='col-2'>
+                        <p>Bet #2</p>
+                    </div>
+                    <div class='col-2 offset-1'>
+                        <p>Amt 2</p>
+                    </div>
+                    <div class='col-2 offset-1'>
+                        <p>Winnings 2</p>
+                    </div>
+                    <div class='col-2 offset-1'>
+                        <button class='btn cancel cancel-wager'>
+                            <img src='SNimgs/cancel.svg' alt="Cancel">
+                        </button>
+                    </div>
+                </div>
+                <div class='col-12 row padding'>
+                    <div class='col-2'>
+                        <p>Bet #3</p>
+                    </div>
+                    <div class='col-2 offset-1'>
+                        <p>Amt 3</p>
+                    </div>
+                    <div class='col-2 offset-1'>
+                        <p>Winnings 3</p>
+                    </div>
+                    <div class='col-2 offset-1'>
+                        <button class='btn cancel cancel-wager'>
+                            <img src='SNimgs/cancel.svg' alt="Cancel">
+                        </button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src = 'sn.js'></script>
+</html>
